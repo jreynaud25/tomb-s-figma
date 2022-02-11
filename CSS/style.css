@@ -4,7 +4,7 @@
 body {
     background-color: black;
     color: white;
-    font-size: 8.8px;
+    font-size: 10px;
     line-height: 13px;
     font-family: Helvetica Neue;
     -webkit-font-smoothing: antialiased;
@@ -23,9 +23,21 @@ header {
     padding: 50px;
     width: 100%;
     box-sizing: border-box;
-    font-size: 11.5px;
+    font-size: 14px;
     font-weight: 500;
     z-index: 1000;
+}
+
+i {
+    font-style: italic;
+}
+
+.text-col .title:nth-child(2) {
+    margin-top: 1rem;
+}
+
+.text-col p {
+    hyphens: auto;
 }
 
 header a {
@@ -38,12 +50,12 @@ header .active {
 
 header .navigation {
     display: flex;
-    width: 29ch;
+    width: 26ch;
     margin-right: 20px;
 }
 
 header .navigation nav:first-child {
-    margin-right: 20px;
+    margin-right: 37px;
 }
 
 .tombs .text-container .text-col:nth-child(2){
@@ -66,7 +78,6 @@ header .navigation nav:first-child {
     padding-top: 100px;
     position: absolute;
     z-index: 10;
-    pointer-events: none;
 
 }
 
@@ -91,6 +102,49 @@ header .navigation nav:first-child {
     background: black;
 }
 
+.houses {
+    display: flex;
+}
+
+.houses > * {
+    /* margin-bottom: 1rem; */
+    width: 16ch;
+}
+
+.houses > *:nth-child(2) {
+    /* flex: 1; */
+    flex: 1;
+}
+.houses > *:nth-child(3) {
+    /* flex: 1; */
+    flex: 1;
+}
+
+.logos {
+    height: 1em;
+    padding-bottom: 1.4em;
+}
+
+.bigger{    height: 1.4em !important;margin-bottom: 0.2em;}
+
+.x2bigger {
+    height: 1.8em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-left: -0.2em;
+}
+.smaller {
+    height: 0.8em;
+    margin-top: 0.4em;
+}
+.logos img {
+    height: 100%;
+    margin-top: 1.4em;
+}
+
+
+
+
 
 
 .text-col {
@@ -102,7 +156,7 @@ header .navigation nav:first-child {
 }
 
 .text-container .socials {
-    margin-top: 12.5px;
+    margin-top: calc(12.5px*3);
 }
 .tombs-carousel {
     height: 100vh;
@@ -154,7 +208,7 @@ header .navigation nav:first-child {
     right: 100px;
     width: 25ch;
     top: 45px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
     z-index: 10000;
 }
@@ -191,10 +245,17 @@ footer {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    font-size: 11.5px;
-    line-height: 15.5px;
-    z-index: 1000;
 
+    z-index: 1000;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+footer .title {
+    font-size: 14px;
+    font-weight: 500;
 }
 
 footer .newsletter-form {
