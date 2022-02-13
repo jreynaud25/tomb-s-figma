@@ -9,12 +9,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script>
+        barba.init({
+        })
+    </script>
 </head>
-<body class="series">
+<body class="series" data-barba="wrapper">
     <header>
         <div class='navigation'>
-            <nav><a class="active" href="index.html">Tomb Series</a></nav>
+            <nav><a class="active" href="tombs-series.html">Tomb Series</a></nav>
             <nav><a href="tombs-index.html">Tomb Index</a></nav>
         </div>
         <div class="navigation">
@@ -22,7 +26,7 @@
         </div>
     </header>
 
-
+    <div data-barba="container" data-barba-namespace="home" >
     <div class="text-container">
         <div class="text-col">
             <span class="title bold">About</span>
@@ -33,9 +37,9 @@
                 <br><br>The Tombs are divided into eight Houses, each with its own mechanics, launch partners release mechanisms, and unique combinations of physical and digital formats. The series will be available to view in its entirety in a 240 page hardcover book, the Tomb Index, designed and published by Terrain, and available to order through this site, with details below.
             </p>
             <div class='socials'>
-                <span class="bold">View Index Contract</span><br><br>
-                <span class="bold">Join Discord</span><br><br>
-                <span class="bold">Follow Twitter</span><br><br>
+                <span class="bold">View Index Contract</span><br>
+                <span class="bold">Join Discord</span><br>
+                <span class="bold">Follow Twitter</span><br>
                 <span class="bold">F.A.Q</span><br>
             </div>
         </div>
@@ -303,8 +307,8 @@
 
             <p>
                 Price: 90€<br>
-                Shipping fee: 45€<br>
-                Preorder live: <span class="bold">28:39:23</span><br>
+                Shipping fee: 50€<br>
+                Preorder live:  <span class="bold" id="timer"></span><br>
                 <!-- COUNTING DOWN FIVE PM ON FRIDAY CTE  -->
             </p>
 
@@ -318,7 +322,7 @@
     <div class='logo'>
         <img src="IMG/Terrain_Logo-01.svg">
     </div>
-    
+    </div>
 </body>
 <script src="JS/script.js"></script>
 </html>

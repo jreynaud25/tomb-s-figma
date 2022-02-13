@@ -58,8 +58,12 @@ header .navigation nav:first-child {
     margin-right: 37px;
 }
 
+.text-container {
+    pointer-events: none;
+}
+
 .tombs .text-container .text-col:nth-child(2){
-    display: none
+    display: none;
 
 }
 
@@ -99,7 +103,6 @@ header .navigation nav:first-child {
 
 .text-col:first-child {
     z-index: 2000;
-    background: black;
 }
 
 .houses {
@@ -156,7 +159,7 @@ header .navigation nav:first-child {
 }
 
 .text-container .socials {
-    margin-top: calc(12.5px*3);
+    margin-top: calc(12.5px*2);
 }
 .tombs-carousel {
     height: 100vh;
@@ -205,7 +208,7 @@ header .navigation nav:first-child {
 
 .tomb-title {
     position: absolute;
-    right: 100px;
+    right: 50px;
     width: 25ch;
     top: 45px;
     font-size: 18px;
@@ -296,5 +299,10 @@ footer .newsletter-form input:focus {
 
 .logo img {
     width: 100%;
+}
+
+.tombs .logo {
+    top: 80px !important;
+    bottom: inherit;
 }
 
