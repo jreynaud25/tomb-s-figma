@@ -44,19 +44,10 @@ var flkty = new Flickity( elem, {
 
 });
 
-flkty.on( 'settle', function( index ) {
-  // var number = document.querySelector('.is-selected').dataset.number
-  // var name = document.querySelector('.is-selected').dataset.name
-  // var spans = document.querySelectorAll('.tomb-title-container span');
-  // spans[0].innerHTML = number
-  // spans[1].innerHTML = name
-});
-
 var next = document.querySelector('.tombs-nav .next')
 next.addEventListener('click',function(){
   flkty.next();
-  var actualPos = flkty.selectedIndex - 1; 
-
+  var actualPos = flkty.selectedIndex + 1; 
   var number = document.querySelectorAll('.cell')[actualPos].dataset.number
   var name = document.querySelectorAll('.cell')[actualPos].dataset.name
   var house = document.querySelectorAll('.cell')[actualPos].dataset.house
@@ -64,9 +55,6 @@ next.addEventListener('click',function(){
   spans[0].innerHTML = number
   spans[1].innerHTML = name
   spans[3].innerHTML = house
-
-  console.log(flkty.selectedIndex);
-
 })
 
 var prev = document.querySelector('.tombs-nav .previous')
@@ -105,11 +93,11 @@ function createBookCarousel(){
   flkty.next();
 })
 
-  var prev = document.querySelector('.book-nav .previous')
+var prev = document.querySelector('.book-nav .previous')
 
-  prev.addEventListener('click',function(){
-    prev.flkty.previous();
-  })
+prev.addEventListener('click',function(){
+  flkty.previous();
+})
 
   }
   createBookCarousel()

@@ -13,10 +13,11 @@ barba.init({
     },
     leave(){
       gsap.set(".text-container .text-col:nth-child(1)", { background: 'black'});
+      gsap.to(".view-button", { ease: Power1.easeOut, opacity: 0, duration: .4});
       gsap.to(".text-container .text-col:nth-child(2)", { ease: Power1.easeOut, xPercent: -105, duration: .2});
       gsap.to(".text-container .text-col:nth-child(3)", { ease: Power1.easeOut, xPercent: -210, duration: .4});
       gsap.fromTo(".tombs-wrapper", {xPercent: 41, opacity: 0.5},{ ease: Power1.easeOut, xPercent: 0, opacity: 1, duration: .4});
-
+      gsap.to(".logo", {top: 80, duration: .4});
       const done = this.async();
       setTimeout(() => {
         done()
@@ -26,9 +27,11 @@ barba.init({
       createCarousel()
     },
     enter(){
+      gsap.fromTo(".tomb-infos", {opacity: 0},{opacity: 1});
       gsap.set(".text-container .text-col:nth-child(2)", { xPercent: -105});
       gsap.set(".text-container .text-col:nth-child(3)", { xPercent: -210});
       gsap.set(".text-container .text-col:nth-child(1)", { background: 'black'});
+      gsap.set(".logo", {top: 80});
 
     }
   },{
@@ -47,6 +50,8 @@ barba.init({
       gsap.set(".text-container .text-col:nth-child(1)", { background: 'black'});
       gsap.set(".text-container .text-col:nth-child(2)", { opacity: 1});
       gsap.set(".text-container .text-col:nth-child(3)", { opacity: 1});
+      gsap.to(".tomb-infos", {opacity: 0});
+      gsap.to(".logo", {top: '85vh', duration: .4});
       gsap.fromTo(".text-container .text-col:nth-child(2)", { xPercent: -105},  { ease: Power1.easeOut, xPercent: 0, delay: .2 ,duration: .2});
       gsap.fromTo(".text-container .text-col:nth-child(3)", { xPercent: -210}, { ease: Power1.easeOut, xPercent: 0, duration: .4});
       gsap.to(".tombs-wrapper", { ease: Power1.easeOut, xPercent: 41, opacity: 0.5, duration: .4});
@@ -58,6 +63,7 @@ barba.init({
     },
     enter(){
       gsap.set(".tombs-wrapper", {xPercent: 41});
+      gsap.set(".tomb-infos", {opacity: 0});
 
     }
   },
@@ -77,6 +83,7 @@ barba.init({
     leave(){
       gsap.to(".text-container", { ease: Power1.easeOut, xPercent: -100, opacity: 0.5, duration: .6});
       gsap.to(".tombs-wrapper", { ease: Power1.easeOut, xPercent: 100, opacity: 0.5, duration: .6});
+      gsap.to(".logo", {top: 80, duration: .4});
 
       const done = this.async();
       setTimeout(() => {
@@ -105,7 +112,10 @@ barba.init({
         'home'
       ]
     },
-    leave(){
+    leave(data){
+      if(data.next.namespace == "home"){
+      gsap.to(".logo", {top: '85vh', duration: .4});
+      }
       gsap.fromTo(".text-container", {opacity: 1},{ ease: Power1.easeOut,  opacity: 0, duration: .8});
       gsap.fromTo(".tombs-wrapper", {yPercent: 0},{ yPercent: 100, ease: Power1.easeOut,  opacity: 1, duration: .4});
       const done = this.async();
@@ -122,6 +132,76 @@ barba.init({
       gsap.fromTo(".text-container", { xPercent: -100}, { ease: Power1.easeOut, xPercent: 0, opacity: 1, duration: .6});
       gsap.fromTo(".tombs-wrapper",  { xPercent: 100}, { ease: Power1.easeOut, xPercent: 0, opacity: 1, duration: .6});
       if(data.next.namespace == "home"){
+        gsap.set(".tomb-infos", {opacity: 0})
+        gsap.fromTo(".tombs-wrapper",  { xPercent: 100}, { ease: Power1.easeOut, xPercent: 41, opacity: 1, duration: .6});
+      }
+      else {
+        gsap.fromTo(".tombs-wrapper",  { xPercent: 100}, { ease: Power1.easeOut, xPercent: 0, opacity: 1, duration: .6});
+      }
+      if(data.next.namespace == "tombs"){
+        gsap.set(".text-container .text-col:nth-child(2)", { xPercent: -105, opacity: 0});
+        gsap.set(".text-container .text-col:nth-child(3)", { xPercent: -210, opacity: 0});
+      }
+    }
+  },
+  {
+    name: 't-t-h',
+    from: {
+      namespace: [
+        'tombs',
+        'home'
+      ]
+    },
+    to: {
+      namespace: [
+        'faq'
+      ]
+    },
+    leave(){
+      gsap.to(".text-container", { ease: Power1.easeOut, xPercent: -100, opacity: 0.5, duration: .6});
+      gsap.to(".tombs-wrapper", { ease: Power1.easeOut, xPercent: 100, opacity: 0.5, duration: .6});
+      gsap.to(".logo", {top: 80, duration: .4});
+
+      const done = this.async();
+      setTimeout(() => {
+        done()
+      }, 600);
+    },
+    enter(){
+      gsap.fromTo(".text-container", {opacity: 0},{ ease: Power1.easeOut,  opacity: 1, duration: .8});
+      gsap.fromTo(".tombs-wrapper", {yPercent: 100},{ yPercent: 0, ease: Power1.easeOut,  opacity: 1, duration: .4});
+
+    }
+  },
+  {
+    name: 't-t-h',
+    from: {
+      namespace: [
+        'faq'
+      ]
+    },
+    to: {
+      namespace: [
+        'tombs',
+        'home'
+      ]
+    },
+    leave(data){
+      if(data.next.namespace == "home"){
+      gsap.to(".logo", {top: '85vh', duration: .4});
+      }
+      gsap.fromTo(".text-container", {opacity: 1},{ ease: Power1.easeOut,  opacity: 0, duration: .8});
+      gsap.fromTo(".tombs-wrapper", {yPercent: 0},{ yPercent: 100, ease: Power1.easeOut,  opacity: 1, duration: .4});
+      const done = this.async();
+      setTimeout(() => {
+        done()
+      }, 600);
+    },
+    enter(data){
+      gsap.fromTo(".text-container", { xPercent: -100}, { ease: Power1.easeOut, xPercent: 0, opacity: 1, duration: .6});
+      gsap.fromTo(".tombs-wrapper",  { xPercent: 100}, { ease: Power1.easeOut, xPercent: 0, opacity: 1, duration: .6});
+      if(data.next.namespace == "home"){
+        gsap.set(".tomb-infos", {opacity: 0})
         gsap.fromTo(".tombs-wrapper",  { xPercent: 100}, { ease: Power1.easeOut, xPercent: 41, opacity: 1, duration: .6});
       }
       else {

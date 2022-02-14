@@ -15,6 +15,7 @@ body {
   body a {
       color: white;
       text-decoration: none;
+      pointer-events: all !important;
   }
 
 
@@ -288,7 +289,8 @@ img {
     height: 80vh;
 }
 .tomb-container figure img {
-    height: 100%;
+    max-height: 100%;
+    max-width: 50vw;
 }
 
 
@@ -352,6 +354,42 @@ footer .newsletter-form {
     display: flex;
     flex-direction: column;
     width: 37ch;
+}
+
+.faq .title {
+    padding-top: 1rem;
+    
+}
+
+.tomb-container a {
+    position: relative;
+}
+
+.view-button {
+    position: absolute;
+    left: -80px;
+    z-index: 100;
+    top: 100px;
+    display: flex;
+}
+
+.view-button span {
+    margin-right: 0.5rem;
+}
+
+.view-button > * {
+    margin-right: 1rem;
+    display: inline-block;
+    width:max-content;
+}
+
+.view-button div {
+    width: max-content;
+    display: inline-block;
+}
+
+.view-button div span {
+    display: inline-block;
 
 }
 
@@ -366,6 +404,15 @@ footer .newsletter-form input {
     padding: 0;
     padding-bottom: 2.5px;
     margin-top: 2.5px;
+    width: 100%;
+}
+
+.input--hidden {
+    display: none;
+}
+
+.sib-form button {
+    display: none;
 }
 
 footer .newsletter-form input:focus {
@@ -381,7 +428,6 @@ footer .newsletter-form input:focus {
     top: 85vh;
     right: 5px;
     transform: rotate(90deg);
-    transition: top .6s ease-in;
 }
 
 .home-to-tombs .logo {
@@ -541,5 +587,13 @@ footer .newsletter-form input:focus {
       padding-left: 0em;
       padding-top: 3.5em;
     }
+  }
+  
+  .sib-form svg {
+      display: none;
+  }
+
+  .sib-form-message-panel {
+      display: none;
   }
   
