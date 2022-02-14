@@ -1,36 +1,3 @@
-function createCarousel(){
-var elem = document.querySelector('.tombs-carousel');
-var flkty = new Flickity( elem, {
-  // options
-  cellAlign: 'left',
-  contain: true,
-  controls: false,
-  prevNextButtons: false,
-  pageDots: false
-
-
-});
-
-flkty.on( 'settle', function( index ) {
-  console.log('ok')
-  var number = document.querySelector('.is-selected').dataset.number
-  var name = document.querySelector('.is-selected').dataset.name
-  var spans = document.querySelectorAll('.tomb-title-container span');
-  spans[0].innerHTML = number
-  spans[1].innerHTML = name
-
-});}
-createCarousel()
-
-
-
-// alert('ok')
-
-// // element argument can be a selector string
-// //   for an individual element
-// var flkty = new Flickity( '.tombs-carousel', {
-//   // options
-// });
 
 var end = new Date('18 Feb 2022 15:00:00');
 
@@ -62,3 +29,112 @@ function showRemaining()
                                  seconds + 's '}
 
 timer = setInterval(showRemaining, 10);
+
+function createCarousel(){
+var elem = document.querySelectorAll('.tombs-carousel')[0];
+
+var flkty = new Flickity( elem, {
+  // options
+  cellAlign: 'left',
+  contain: true,
+  controls: false,
+  prevNextButtons: false,
+  pageDots: false
+
+
+});
+
+flkty.on( 'settle', function( index ) {
+  // var number = document.querySelector('.is-selected').dataset.number
+  // var name = document.querySelector('.is-selected').dataset.name
+  // var spans = document.querySelectorAll('.tomb-title-container span');
+  // spans[0].innerHTML = number
+  // spans[1].innerHTML = name
+});
+
+var next = document.querySelector('.tombs-nav .next')
+next.addEventListener('click',function(){
+  flkty.next();
+  var actualPos = flkty.selectedIndex - 1; 
+
+  var number = document.querySelectorAll('.cell')[actualPos].dataset.number
+  var name = document.querySelectorAll('.cell')[actualPos].dataset.name
+  var house = document.querySelectorAll('.cell')[actualPos].dataset.house
+  var spans = document.querySelectorAll('.tomb-title-container span');
+  spans[0].innerHTML = number
+  spans[1].innerHTML = name
+  spans[3].innerHTML = house
+
+  console.log(flkty.selectedIndex);
+
+})
+
+var prev = document.querySelector('.tombs-nav .previous')
+prev.addEventListener('click',function(){
+  flkty.previous();
+  var actualPos = flkty.selectedIndex; 
+
+  var number = document.querySelectorAll('.cell')[actualPos].dataset.number
+  var name = document.querySelectorAll('.cell')[actualPos].dataset.name
+  var house = document.querySelectorAll('.cell')[actualPos].dataset.house
+  var spans = document.querySelectorAll('.tomb-title-container span');
+  spans[0].innerHTML = number
+  spans[1].innerHTML = name
+  spans[3].innerHTML = house
+})
+
+}
+createCarousel()
+
+function createBookCarousel(){
+  var elem = document.querySelector('.book');
+  var flkty = new Flickity( elem, {
+    // options
+    cellAlign: 'left',
+    contain: true,
+    controls: false,
+    prevNextButtons: false,
+    pageDots: false
+  
+  
+  });
+  
+  var next = document.querySelector('.book-nav .next')
+
+  next.addEventListener('click',function(){
+  flkty.next();
+})
+
+var prev = document.querySelector('.book-nav .previous')
+
+document.querySelector('.book-nav .previous').addEventListener('click',function(){
+  prev.flkty.previous();
+})
+
+  }
+  createBookCarousel()
+
+
+
+// alert('ok')
+
+// // element argument can be a selector string
+// //   for an individual element
+// var flkty = new Flickity( '.tombs-carousel', {
+//   // options
+// });
+function menu(){
+var navs = document.querySelectorAll('.navigation nav');
+navs.forEach(nav => {
+  nav.addEventListener('click',function(){
+    console.log('ok')
+    navs.forEach(nav => {
+      nav.querySelector('a').classList.remove('active')
+    });
+    this.querySelector('a').classList.add('active')
+  })
+  
+});
+}
+menu();
+

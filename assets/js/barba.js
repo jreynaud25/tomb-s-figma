@@ -22,6 +22,9 @@ barba.init({
         done()
       }, 800);
     },
+    beforeEnter(){
+      createCarousel()
+    },
     enter(){
       gsap.set(".text-container .text-col:nth-child(2)", { xPercent: -105});
       gsap.set(".text-container .text-col:nth-child(3)", { xPercent: -210});
@@ -80,6 +83,9 @@ barba.init({
         done()
       }, 600);
     },
+    beforeEnter(){
+      createBookCarousel()
+    },
     enter(){
       gsap.fromTo(".text-container", {opacity: 0},{ ease: Power1.easeOut,  opacity: 1, duration: .8});
       gsap.fromTo(".tombs-wrapper", {yPercent: 100},{ yPercent: 0, ease: Power1.easeOut,  opacity: 1, duration: .4});
@@ -107,6 +113,11 @@ barba.init({
         done()
       }, 600);
     },
+    beforeEnter(data){
+      if(data.next.namespace == "tombs"){
+        createCarousel()
+      }
+    },
     enter(data){
       gsap.fromTo(".text-container", { xPercent: -100}, { ease: Power1.easeOut, xPercent: 0, opacity: 1, duration: .6});
       gsap.fromTo(".tombs-wrapper",  { xPercent: 100}, { ease: Power1.easeOut, xPercent: 0, opacity: 1, duration: .6});
@@ -122,4 +133,8 @@ barba.init({
       }
     }
   }]
+});
+
+barba.hooks.enter((data) => {
+  menu();
 });
