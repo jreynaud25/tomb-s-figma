@@ -105,11 +105,11 @@ function createBookCarousel(){
   flkty.next();
 })
 
-var prev = document.querySelector('.book-nav .previous')
+  var prev = document.querySelector('.book-nav .previous')
 
-document.querySelector('.book-nav .previous').addEventListener('click',function(){
-  prev.flkty.previous();
-})
+  prev.addEventListener('click',function(){
+    prev.flkty.previous();
+  })
 
   }
   createBookCarousel()
